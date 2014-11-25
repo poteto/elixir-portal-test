@@ -31,8 +31,8 @@ defmodule Portal.Door do
   """
   def pop(door) do
     Agent.get_and_update(door, fn
-      [] -> { :error, [] }
-      [head | tail] -> { { :ok, head }, tail }
+      []            -> {:error, []}
+      [head | tail] -> {{ :ok, head}, tail }
     end)
   end
 end
